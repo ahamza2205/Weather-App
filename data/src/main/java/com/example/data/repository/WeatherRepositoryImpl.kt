@@ -1,17 +1,20 @@
 package com.example.data.repository
 
-import com.example.data.remot.WeatherApiService
+import com.example.core.serveice.WeatherApiService
+import com.example.core.serveice.models.CurrentWeatherDto
+import com.example.core.serveice.models.ForecastDto
+import retrofit2.Response
 import javax.inject.Inject
 
 
 class WeatherRepositoryImpl @Inject constructor(
     private val api: WeatherApiService
 ) : WeatherRepository {
-    private val apiKey = "YOUR_API_KEY"
+    private val apiKey = "c4fd5335d6fa4b86802225847251404"
 
-    override suspend fun getCurrentWeather(city: String) =
+    override suspend fun getCurrentWeather(city: String): Response<CurrentWeatherDto> =
         api.getCurrentWeather(apiKey, city)
 
-    override suspend fun getForecast(city: String) =
+    override suspend fun getForecast(city: String): Response<ForecastDto> =
         api.getForecast(apiKey, city)
 }

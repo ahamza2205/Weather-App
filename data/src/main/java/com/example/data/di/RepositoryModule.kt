@@ -1,6 +1,6 @@
 package com.example.data.di
 
-import com.example.data.remot.WeatherApiService
+import com.example.core.serveice.WeatherApiService
 import com.example.data.repository.WeatherRepository
 import com.example.data.repository.WeatherRepositoryImpl
 import dagger.Module
