@@ -3,6 +3,7 @@ package com.example.data.cache
 import android.content.SharedPreferences
 import javax.inject.Inject
 
+
 class CityInputCacheImpl @Inject constructor(
     private val prefs: SharedPreferences
 ) : CityInputCache {

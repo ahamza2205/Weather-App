@@ -1,25 +1,13 @@
 package com.example.feature_cityinpu.presentation
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-
 
 @Composable
 fun CityInputScreen(
@@ -45,7 +33,14 @@ fun CityInputScreen(
         Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A2B38)),
             onClick = {
-                navController.navigate("currentWeatherScreen/${state.cityName}")
+                if (state.cityName.isNotBlank()) {
+                    viewModel.onSubmitClicked { city ->
+                        navController.navigate("${"currentWeatherScreen"}/$city") {
+                            // Pop back stack to prevent going back to CityInputScreen
+                            popUpTo("cityInputScreen") { inclusive = true }
+                        }
+                    }
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -53,4 +48,3 @@ fun CityInputScreen(
         }
     }
 }
-
