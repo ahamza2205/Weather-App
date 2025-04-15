@@ -36,7 +36,7 @@ data class Current(
     val windchillF: Float? = null,
     val windchillC: Float? = null,
     val lastUpdatedEpoch: Int? = null,
-    val tempC: Float? = null,
+    val temp_c: Float? = null,
     val tempF: Float? = null,
     val cloud: Int? = null,
     val windKph: Float? = null,

@@ -1,4 +1,4 @@
-package com.example.feature_cityinpu.domain
+package com.example.feature_cityinpu.domain.usecase
 
 
 import com.example.data.cache.CityInputCache

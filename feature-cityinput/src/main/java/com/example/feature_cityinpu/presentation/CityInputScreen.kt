@@ -15,11 +15,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 
 @Composable
 fun CityInputScreen(
-    viewModel: CityInputViewModel = hiltViewModel(),
-    onSubmit: (String) -> Unit
+    navController: NavController,
+    viewModel: CityInputViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -38,7 +39,9 @@ fun CityInputScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { viewModel.onSubmitClicked(onSubmit) },
+            onClick = {
+                navController.navigate("currentWeatherScreen/${state.cityName}")
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Get Weather")

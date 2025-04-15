@@ -1,7 +1,7 @@
 package com.example.feature_cityinpu.presentation
 
 import androidx.lifecycle.ViewModel
-import com.example.feature_cityinpu.domain.SaveCityInputUseCase
+import com.example.feature_cityinpu.domain.usecase.SaveCityInputUseCase
 import com.example.feature_cityinpu.domain.model.CityInput
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
