@@ -9,6 +9,11 @@ fun CurrentWeatherDto.toDomain(): CurrentWeather {
         city = location?.name ?: "",
         temperature = current?.temp_c?.toInt() ?: 0,
         condition = current?.condition?.text ?: "",
-        iconUrl = current?.condition?.icon ?: ""
+        iconUrl = current?.condition?.icon ?: "",
+        localTime = location?.localtime ?: "",
+        humidity = current?.humidity ?: 0,
+        wind_kph = current?.wind_kph?.toInt() ?: 0
     )
 }
+
+

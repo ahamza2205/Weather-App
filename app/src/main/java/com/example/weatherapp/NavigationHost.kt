@@ -30,7 +30,7 @@ fun NavigationHost() {
             val city = entry.arguments?.getString("city") ?: ""
             val viewModel: CurrentWeatherViewModel = hiltViewModel()
 
-            CurrentWeatherScreen(city, viewModel)
+            CurrentWeatherScreen(city = city, navController = navController, viewModel = viewModel)
         }
     }
 }

@@ -39,7 +39,7 @@ data class Current(
     val temp_c: Float? = null,
     val tempF: Float? = null,
     val cloud: Int? = null,
-    val windKph: Float? = null,
+    val wind_kph: Float? = null,
     val windMph: Float? = null,
     val humidity: Int? = null,
     val dewpointF: Float? = null,
