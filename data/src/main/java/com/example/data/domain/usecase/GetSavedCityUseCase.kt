@@ -1,4 +1,4 @@
-package com.example.data.domain
+package com.example.data.domain.usecase
 
 import com.example.data.cache.CityInputCache
 import javax.inject.Inject

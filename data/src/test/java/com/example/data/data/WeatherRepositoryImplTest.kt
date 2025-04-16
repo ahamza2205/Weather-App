@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.data
 
 
 import Condition
@@ -12,6 +12,7 @@ import com.example.core.serveice.models.CurrentCondition
 import com.example.core.serveice.models.Current
 import com.example.core.serveice.models.CurrentWeatherDto
 import com.example.core.serveice.models.Location
+import com.example.data.domain.repository.WeatherRepositoryImpl
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
