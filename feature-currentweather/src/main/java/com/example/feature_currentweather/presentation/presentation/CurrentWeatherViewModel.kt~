@@ -25,6 +25,7 @@ class CurrentWeatherViewModel @Inject constructor(
         }
         viewModelScope.launch {
             _state.value = CurrentWeatherState(isLoading = true)
+
             try {
                 val response = getCurrentWeatherUseCase(city)
                 _state.value = CurrentWeatherState(weather = response, isLoading = false)

@@ -83,5 +83,26 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+    // JUnit for testing
+    // Mockito for mocking
+    testImplementation ("org.mockito:mockito-core:5.12.0")
+    // Kotlin coroutines test support
+    // Optional: Retrofit response assertions (if needed)
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.12.0")
+
+    // For Coroutine test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    testImplementation("app.cash.turbine:turbine:1.0.0")
+
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+
+    testImplementation ("io.mockk:mockk:1.13.4")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
+
+
 
 }

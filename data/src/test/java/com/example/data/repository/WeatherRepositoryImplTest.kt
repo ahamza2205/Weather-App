@@ -35,7 +35,6 @@ class WeatherRepositoryImplTest {
     @Test
     fun `getCurrentWeather should return correct response when API call is successful`(): Unit =
         runBlocking {
-            // Arrange
             val city = "Cairo"
             val mockDto = CurrentWeatherDto(
                 location = Location(
@@ -53,10 +52,8 @@ class WeatherRepositoryImplTest {
             val mockResponse = Response.success(mockDto)
             Mockito.`when`(apiService.getCurrentWeather(city = city)).thenReturn(mockResponse)
 
-            // Act
             val result = repository.getCurrentWeather(city)
 
-            // Assert
             assertTrue(result.isSuccessful)
             assertEquals(mockDto, result.body())
             Mockito.verify(apiService).getCurrentWeather(city = city)
@@ -65,7 +62,6 @@ class WeatherRepositoryImplTest {
     @Test
     fun `getForecast should return correct response when API call is successful`(): Unit =
         runBlocking {
-            // Arrange
             val city = "Cairo"
             val mockDto = ForecastDto(
                 forecast = ForecastData(
@@ -84,10 +80,8 @@ class WeatherRepositoryImplTest {
             val mockResponse = Response.success(mockDto)
             Mockito.`when`(apiService.getForecast(city = city)).thenReturn(mockResponse)
 
-            // Act
             val result = repository.getForecast(city)
 
-            // Assert
             assertTrue(result.isSuccessful)
             assertEquals(mockDto, result.body())
             Mockito.verify(apiService).getForecast(city = city)

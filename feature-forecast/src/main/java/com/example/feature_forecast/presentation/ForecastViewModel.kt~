@@ -24,10 +24,6 @@ class ForecastViewModel @Inject constructor(
     }
 
     private fun loadForecast(city: String) {
-        if (city.isBlank()) {
-            _state.value = ForecastState(isLoading = false, forecast = null, error = "City cannot be empty")
-            return
-        }
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true)
             try {
