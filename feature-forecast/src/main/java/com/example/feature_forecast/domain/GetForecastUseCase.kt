@@ -3,7 +3,7 @@ package com.example.feature_forecast.domain
 import Forecast
 import com.example.data.repository.WeatherRepository
 import javax.inject.Inject
-import com.example.data.helper.toDomain
+import com.example.core.utils.toDomain
 
 class GetForecastUseCase @Inject constructor(
     private val repository: WeatherRepository

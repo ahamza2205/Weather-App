@@ -3,7 +3,7 @@ package com.example.feature_currentweather.presentation.domain
 
 import com.example.core.serveice.models.CurrentWeather
 import com.example.data.repository.WeatherRepository
-import com.example.data.helper.toDomain
+import com.example.core.utils.toDomain
 import javax.inject.Inject
 
 class GetCurrentWeatherUseCase @Inject constructor(

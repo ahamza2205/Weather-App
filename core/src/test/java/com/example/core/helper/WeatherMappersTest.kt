@@ -1,4 +1,4 @@
-package com.example.data.helper
+package com.example.core.helper
 
 import Condition
 import Day
@@ -9,10 +9,11 @@ import com.example.core.serveice.models.CurrentWeatherDto
 import com.example.core.serveice.models.Current
 import com.example.core.serveice.models.CurrentCondition
 import com.example.core.serveice.models.Location
+import com.example.core.utils.toDomain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class HelperFunctionsTest {
+class WeatherMappersTest {
 
     @Test
     fun `CurrentWeatherDto toDomain should map data correctly`() {

@@ -1,4 +1,4 @@
-package com.example.data.helper
+package com.example.core.utils
 
 import Forecast
 import ForecastDay

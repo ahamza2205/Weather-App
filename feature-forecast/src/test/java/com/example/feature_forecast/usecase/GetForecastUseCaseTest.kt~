@@ -29,7 +29,6 @@ class GetForecastUseCaseTest {
 
     @Test
     fun `invoke should return forecast when repository returns successful response`() = runTest {
-        // Arrange
         val fakeForecastDto = ForecastDto(
             forecast = ForecastData(
                 forecastday = listOf(
@@ -47,28 +46,22 @@ class GetForecastUseCaseTest {
         val expectedForecast = fakeForecastDto.toDomain()
         coEvery { repository.getForecast("Cairo") } returns Response.success(fakeForecastDto)
 
-        // Act
         val result = useCase("Cairo")
 
-        // Assert
         assertEquals(expectedForecast, result)
     }
 
     @Test(expected = Exception::class)
     fun `invoke should throw exception when repository returns unsuccessful response`() = runTest {
-        // Arrange
         coEvery { repository.getForecast("Cairo") } returns Response.error(404, "".toResponseBody())
 
-        // Act
         useCase("Cairo")
     }
 
     @Test(expected = Exception::class)
     fun `invoke should throw exception when repository returns null body`() = runTest {
-        // Arrange
         coEvery { repository.getForecast("Cairo") } returns Response.success(null)
 
-        // Act
         useCase("Cairo")
     }
 }
