@@ -2,7 +2,7 @@ package com.example.feature_currentweather.presentation.domain
 
 
 import com.example.core.serveice.models.CurrentWeather
-import com.example.data.data.WeatherRepository
+import com.example.data.repository.WeatherRepository
 import com.example.core.utils.toDomain
 import javax.inject.Inject
 

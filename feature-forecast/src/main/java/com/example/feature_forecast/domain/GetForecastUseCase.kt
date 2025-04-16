@@ -1,7 +1,7 @@
 package com.example.feature_forecast.domain
 
 import Forecast
-import com.example.data.repository.WeatherRepository
+import com.example.data.data.WeatherRepository
 import javax.inject.Inject
 import com.example.core.utils.toDomain
 

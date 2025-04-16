@@ -5,7 +5,7 @@ import com.example.core.serveice.models.CurrentCondition
 import com.example.core.serveice.models.CurrentWeather
 import com.example.core.serveice.models.CurrentWeatherDto
 import com.example.core.serveice.models.Location
-import com.example.data.repository.WeatherRepository
+import com.example.data.data.WeatherRepository
 import com.example.feature_currentweather.presentation.domain.GetCurrentWeatherUseCase
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

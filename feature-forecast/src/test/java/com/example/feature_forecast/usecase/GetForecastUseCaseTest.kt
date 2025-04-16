@@ -6,7 +6,7 @@ import ForecastData
 import ForecastDto
 import ForecastdayItem
 import com.example.core.utils.toDomain
-import com.example.data.repository.WeatherRepository
+import com.example.data.data.WeatherRepository
 import com.example.feature_forecast.domain.GetForecastUseCase
 import io.mockk.coEvery
 import io.mockk.mockk

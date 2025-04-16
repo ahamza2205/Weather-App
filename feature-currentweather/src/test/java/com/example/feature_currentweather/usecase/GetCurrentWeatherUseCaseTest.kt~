@@ -28,7 +28,6 @@ class GetCurrentWeatherUseCaseTest {
 
     @Test
     fun `invoke should return CurrentWeather when API call is successful`(): Unit = runBlocking {
-        // Arrange
         val city = "Cairo"
         val mockDto = CurrentWeatherDto(
             location = Location(
@@ -57,25 +56,20 @@ class GetCurrentWeatherUseCaseTest {
             wind_kph = 15
         )
 
-        // Act
         val result = useCase(city)
 
-        // Assert
         assertEquals(expectedWeather, result)
         Mockito.verify(repository).getCurrentWeather(city)
     }
 
     @Test(expected = Exception::class)
     fun `invoke should throw Exception when API response body is null`(): Unit = runBlocking {
-        // Arrange
         val city = "Cairo"
         val mockResponse = Response.success<CurrentWeatherDto>(null)
         Mockito.`when`(repository.getCurrentWeather(city)).thenReturn(mockResponse)
 
-        // Act
         useCase(city)
 
-        // Assert (exception is expected)
         Mockito.verify(repository).getCurrentWeather(city)
     }
 }
