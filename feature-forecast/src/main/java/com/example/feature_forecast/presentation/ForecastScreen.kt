@@ -10,12 +10,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.feature_forecast.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,7 +32,7 @@ fun ForecastScreen(
     LaunchedEffect(Unit) {
         viewModel.processIntent(ForecastIntent.LoadForecast(city))
     }
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(12.dp),
@@ -41,16 +43,18 @@ fun ForecastScreen(
                 .fillMaxWidth()
                 .padding(bottom = 8.dp),
             horizontalArrangement = Arrangement.Start
-        ){
+        ) {
             Button(
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A2B38)),
+                elevation = ButtonDefaults.buttonElevation(8.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.primaryColor)),
                 onClick = {
                     navController.popBackStack()
                 }
             ) {
                 Text(
                     text = "Back to Current Weather",
-                    color = Color.White,
+                    color = colorResource(id = R.color.textPrimary),
+                    fontWeight = FontWeight.Bold,
                     fontSize = 16.sp
                 )
             }
@@ -89,7 +93,7 @@ fun ForecastScreen(
                                     .padding(vertical = 8.dp),
                                 shape = RoundedCornerShape(16.dp),
                                 elevation = CardDefaults.cardElevation(8.dp),
-                                colors = CardDefaults.cardColors(containerColor = Color(0xFF1A2B38))
+                                colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.primaryColor))
                             ) {
                                 Row(
                                     modifier = Modifier
@@ -108,14 +112,14 @@ fun ForecastScreen(
                                     Column {
                                         Text(
                                             text = dayName,
-                                            color = Color.White,
-                                            fontSize = 18.sp,
+                                            color = colorResource(id = R.color.textPrimary),
+                                            fontSize = 24.sp,
                                             fontWeight = FontWeight.Bold
                                         )
                                         Text(
                                             text = day.conditionText,
-                                            color = Color.LightGray,
-                                            fontSize = 14.sp
+                                            color = colorResource(id = R.color.timeColor),
+                                            fontSize = 18.sp
                                         )
                                     }
 
@@ -123,8 +127,8 @@ fun ForecastScreen(
 
                                     Text(
                                         text = "${day.minTemp.toInt()}/${day.maxTemp.toInt()}°C",
-                                        color = Color.White,
-                                        fontSize = 18.sp,
+                                        color = colorResource(id = R.color.textPrimary),
+                                        fontSize = 24.sp,
                                         fontWeight = FontWeight.Bold
                                     )
                                 }

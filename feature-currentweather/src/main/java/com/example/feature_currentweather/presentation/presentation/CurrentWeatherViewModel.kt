@@ -1,7 +1,6 @@
-package com.example.feature_currentweather.presentation
+package com.example.feature_currentweather.presentation.presentation
 
 import android.util.Log
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.feature_currentweather.presentation.domain.GetCurrentWeatherUseCase
@@ -13,16 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CurrentWeatherViewModel @Inject constructor(
-    private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
-    private val savedStateHandle: SavedStateHandle
+    private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase
 ) : ViewModel() {
-    init {
-        val city = savedStateHandle.get<String>("city") ?: ""
-        Log.d("ViewModel", "City from savedStateHandle: $city")
-        if (city.isNotBlank()) {
-            loadWeather(city)
-        }
-    }
+
     private val _state = MutableStateFlow(CurrentWeatherState())
     val state: StateFlow<CurrentWeatherState> = _state
 

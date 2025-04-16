@@ -1,6 +1,5 @@
 package com.example.weatherapp
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
@@ -9,8 +8,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.feature_cityinpu.presentation.CityInputScreen
-import com.example.feature_currentweather.presentation.CurrentWeatherScreen
-import com.example.feature_currentweather.presentation.CurrentWeatherViewModel
+import com.example.feature_currentweather.presentation.presentation.CurrentWeatherScreen
+import com.example.feature_currentweather.presentation.presentation.CurrentWeatherViewModel
 import com.example.feature_forecast.presentation.ForecastScreen
 import java.net.URLEncoder
 
