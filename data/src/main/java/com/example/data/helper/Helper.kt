@@ -1,7 +1,11 @@
 package com.example.data.helper
 
+import Forecast
+import ForecastDay
+import ForecastDto
 import com.example.core.serveice.models.CurrentWeather
 import com.example.core.serveice.models.CurrentWeatherDto
+
 
 fun CurrentWeatherDto.toDomain(): CurrentWeather {
     return CurrentWeather(
@@ -16,4 +20,15 @@ fun CurrentWeatherDto.toDomain(): CurrentWeather {
     )
 }
 
-
+fun ForecastDto.toDomain(): Forecast {
+    val forecastDays = this.forecast?.forecastday?.map { forecastDayItem ->
+        ForecastDay(
+            date = forecastDayItem.date ?: "",
+            conditionText = forecastDayItem.day?.condition?.text ?: "",
+            conditionIcon = forecastDayItem.day?.condition?.icon ?: "",
+            minTemp = forecastDayItem.day?.mintemp_c ?: 0f,
+            maxTemp = forecastDayItem.day?.maxtemp_c ?: 0f
+        )
+    } ?: emptyList()
+    return Forecast(forecastDays = forecastDays)
+}

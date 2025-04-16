@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
@@ -53,8 +56,30 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // modules
+    implementation(project(":data"))
+    implementation(project(":core"))
+
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+
+    // Hilt
     implementation ("com.google.dagger:hilt-android:2.48.1")
     kapt ("com.google.dagger:hilt-compiler:2.48.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
-    
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+
+    implementation ("androidx.compose.compiler:compiler:1.5.15")
+
+
+    // network
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 }

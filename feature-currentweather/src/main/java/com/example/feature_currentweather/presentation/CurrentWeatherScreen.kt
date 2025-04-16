@@ -61,7 +61,7 @@ fun CurrentWeatherScreen(
                         )
                     }
                 }
-                
+
                 Text(
                     text = weather.localTime ?: "",
                     color = Color.Gray,
@@ -172,7 +172,19 @@ fun CurrentWeatherScreen(
                         }
                     }
                 }
+                Button(
+
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A2B38)),
+                    onClick = {
+                        navController.navigate("${"forecastScreen"}/$city")
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(top = 16.dp)
+                ) {
+                    Text("See Next 5 Days Weather")
+                }
             }
         }
+
     }
 }

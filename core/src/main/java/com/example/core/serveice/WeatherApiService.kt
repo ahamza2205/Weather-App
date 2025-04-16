@@ -1,7 +1,7 @@
 package com.example.core.serveice
 
+import ForecastDto
 import com.example.core.serveice.models.CurrentWeatherDto
-import com.example.core.serveice.models.ForecastDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,6 +17,6 @@ interface WeatherApiService {
     suspend fun getForecast(
         @Query("key") key: String,
         @Query("q") city: String,
-        @Query("days") days: Int = 5
+        @Query("days") days: Int = 6
     ): Response<ForecastDto>
 }

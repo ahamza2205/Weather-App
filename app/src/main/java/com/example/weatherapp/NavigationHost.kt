@@ -11,6 +11,7 @@ import androidx.navigation.navArgument
 import com.example.feature_cityinpu.presentation.CityInputScreen
 import com.example.feature_currentweather.presentation.CurrentWeatherScreen
 import com.example.feature_currentweather.presentation.CurrentWeatherViewModel
+import com.example.feature_forecast.presentation.ForecastScreen
 import java.net.URLEncoder
 
 import java.nio.charset.StandardCharsets
@@ -44,10 +45,27 @@ fun NavigationHost(startCity: String? = null) {
             val city = entry.arguments?.getString("city") ?: ""
             val viewModel: CurrentWeatherViewModel = hiltViewModel()
             if (city.isBlank() && !startCity.isNullOrBlank()) {
-                CurrentWeatherScreen(city = startCity, navController = navController, viewModel = viewModel)
+                CurrentWeatherScreen(
+                    city = startCity,
+                    navController = navController,
+                    viewModel = viewModel
+                )
             } else {
-                CurrentWeatherScreen(city = city, navController = navController, viewModel = viewModel)
+                CurrentWeatherScreen(
+                    city = city,
+                    navController = navController,
+                    viewModel = viewModel
+                )
             }
+        }
+
+        composable(
+            "${Routes.Forecast}/{city}",
+            arguments = listOf(navArgument("city") { type = NavType.StringType })
+        ) { entry ->
+            val city = entry.arguments?.getString("city") ?: ""
+            ForecastScreen(city = city, navController = navController)
         }
     }
 }
+

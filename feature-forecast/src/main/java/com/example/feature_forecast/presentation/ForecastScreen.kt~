@@ -45,7 +45,7 @@ fun ForecastScreen(
             Button(
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A2B38)),
                 onClick = {
-                    navController.popBackStack()
+                    navController.navigate("currentWeatherScreen")
                 }
             ) {
                 Text(

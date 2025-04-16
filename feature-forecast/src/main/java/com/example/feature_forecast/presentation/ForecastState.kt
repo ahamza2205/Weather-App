@@ -1,4 +1,9 @@
 package com.example.feature_forecast.presentation
 
-class ForecastState {
-}
+import Forecast
+
+data class ForecastState(
+    val forecast: Forecast? = null,
+    val isLoading: Boolean = false,
+    val error: String? = null
+)

@@ -1,9 +1,11 @@
 package com.example.data.repository
 
+import ForecastDto
 import com.example.core.serveice.models.CurrentWeatherDto
-import com.example.core.serveice.models.ForecastDto
 import retrofit2.Response
+
 
 interface WeatherRepository {
     suspend fun getCurrentWeather(city: String): Response<CurrentWeatherDto>
+    suspend fun getForecast(city: String): Response<ForecastDto>
 }
