@@ -35,4 +35,3 @@ class CurrentWeatherViewModel @Inject constructor(
         }
     }
 }
-
