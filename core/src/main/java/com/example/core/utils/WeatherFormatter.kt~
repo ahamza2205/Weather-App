@@ -1,0 +1,63 @@
+package com.example.core.utils
+
+import java.text.SimpleDateFormat
+import java.util.*
+
+object WeatherFormatter {
+
+    fun formatTemperature(tempCelsius: Int): String {
+        return "${tempCelsius}°C"
+    }
+
+    fun formatDateFromEpoch(epoch: Long): String {
+        val date = Date(epoch * 1000)
+        val format = SimpleDateFormat("EEE, dd MMM", Locale.getDefault())
+        return format.format(date)
+    }
+
+
+    fun formatDayName(dateStr: String): String {
+        return try {
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val date = sdf.parse(dateStr)
+            val todayStr = sdf.format(Date())
+            return if (dateStr == todayStr) {
+                "Today"
+            } else {
+                SimpleDateFormat("EEEE", Locale.getDefault()).format(date ?: Date())
+            }
+        } catch (e: Exception) {
+            dateStr
+        }
+    }
+
+    fun formatMinMaxTemp(min: Float, max: Float): String {
+        return "${min.toInt()}/${max.toInt()}°C"
+    }
+
+
+    fun formatTime(localTime: String): String {
+        // Assuming format from API is: "2024-04-16 14:30"
+        return try {
+            val parser = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+            val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
+            val date = parser.parse(localTime)
+            formatter.format(date!!)
+        } catch (e: Exception) {
+            localTime
+        }
+    }
+
+    fun formatHumidity(humidity: Int): String {
+        return "$humidity%"
+    }
+
+    fun formatWindSpeed(windKph: Int): String {
+        return "${windKph} km/h"
+    }
+
+    fun getWeatherIconUrl(iconCode: String): String {
+        return "https:$iconCode"
+    }
+}
+

@@ -72,6 +72,8 @@ fun ForecastScreen(
 
                 state.forecast != null -> {
                     val forecastDays = state.forecast!!.forecastDays
+                    val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(16.dp)
@@ -93,7 +95,7 @@ fun ForecastScreen(
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     AsyncImage(
-                                        model = WeatherFormatter.getWeatherIconUrl(day.conditionIcon),
+                                        model = "https:${day.conditionIcon}",
                                         contentDescription = "Weather Icon",
                                         modifier = Modifier.size(64.dp)
                                     )
@@ -117,10 +119,7 @@ fun ForecastScreen(
                                     Spacer(modifier = Modifier.weight(1f))
 
                                     Text(
-                                        text = WeatherFormatter.formatMinMaxTemp(
-                                            day.minTemp,
-                                            day.maxTemp
-                                        ),
+                                        text = WeatherFormatter.formatMinMaxTemp(day.minTemp, day.maxTemp),
                                         color = colorResource(id = R.color.textPrimary),
                                         fontSize = 24.sp,
                                         fontWeight = FontWeight.Bold

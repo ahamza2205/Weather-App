@@ -1,7 +1,7 @@
 package com.example.data.repository
 
 import ForecastDto
-import com.example.core.serveice.WeatherApiService
+import com.example.core.serveice.network.WeatherApiService
 import com.example.core.serveice.models.CurrentWeatherDto
 import retrofit2.Response
 import javax.inject.Inject

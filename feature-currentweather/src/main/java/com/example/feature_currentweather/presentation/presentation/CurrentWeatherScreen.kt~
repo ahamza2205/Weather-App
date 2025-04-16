@@ -180,7 +180,7 @@ fun CurrentWeatherScreen(
                             Text("🌬️", fontSize = 28.sp)
                             Text("Wind", color = colorResource(id = R.color.textPrimary))
                             Text(
-                                text =  WeatherFormatter.formatWindSpeed(weather.wind_kph),
+                                "${weather.wind_kph} km/h",
                                 color = colorResource(id = R.color.textSecondary)
                             )
                         }

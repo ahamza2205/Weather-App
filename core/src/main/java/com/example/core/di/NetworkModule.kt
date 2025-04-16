@@ -1,7 +1,7 @@
-package com.example.core.utils
+package com.example.core.di
 
 
-import com.example.core.serveice.WeatherApiService
+import com.example.core.serveice.network.WeatherApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -7,7 +7,7 @@ import ForecastData
 
 import ForecastDto
 import ForecastdayItem
-import com.example.core.serveice.WeatherApiService
+import com.example.core.serveice.network.WeatherApiService
 import com.example.core.serveice.models.CurrentCondition
 import com.example.core.serveice.models.Current
 import com.example.core.serveice.models.CurrentWeatherDto
