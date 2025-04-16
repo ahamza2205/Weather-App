@@ -60,4 +60,14 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+
+    // JUnit for testing
+    testImplementation ("junit:junit:4.13.2")
+    // Mockito for mocking
+    testImplementation ("org.mockito:mockito-core:5.12.0")
+    // Kotlin coroutines test support
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+    // Optional: Retrofit response assertions (if needed)
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.12.0")
+
 }

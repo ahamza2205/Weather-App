@@ -6,7 +6,6 @@ import ForecastDto
 import com.example.core.serveice.models.CurrentWeather
 import com.example.core.serveice.models.CurrentWeatherDto
 
-
 fun CurrentWeatherDto.toDomain(): CurrentWeather {
     return CurrentWeather(
         country = location?.country ?: "",
