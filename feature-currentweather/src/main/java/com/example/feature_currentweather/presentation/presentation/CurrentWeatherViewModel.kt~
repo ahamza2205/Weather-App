@@ -28,11 +28,10 @@ class CurrentWeatherViewModel @Inject constructor(
             try {
                 val response = getCurrentWeatherUseCase(city)
                 _state.value = CurrentWeatherState(weather = response, isLoading = false)
-                Log.d("CurrentWeatherViewModel", "Weather loaded: $response")
+            م    Log.d("CurrentWeatherViewModel", "Weather loaded: $response")
             } catch (e: Exception) {
                 _state.value = CurrentWeatherState(error = e.message ?: "An error occurred", isLoading = false)
             }
         }
     }
 }
-

@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -16,10 +17,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.core.utils.NetworkUtils
 import com.example.core.utils.WeatherFormatter
 import com.example.feature_forecast.R
-import java.text.SimpleDateFormat
-import java.util.*
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
 fun ForecastScreen(
@@ -28,10 +29,24 @@ fun ForecastScreen(
     viewModel: ForecastViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
+    val context = LocalContext.current
 
-    LaunchedEffect(Unit) {
-        viewModel.processIntent(ForecastIntent.LoadForecast(city))
+    val isConnected by NetworkUtils.isConnected.collectAsState()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
+
+    LaunchedEffect(isConnected) {
+        if (isConnected) {
+            viewModel.processIntent(ForecastIntent.LoadForecast(city))
+        }
     }
+
+    LaunchedEffect(isConnected) {
+        if (!isConnected) {
+            snackbarHostState.showSnackbar("Check your internet connection")
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,11 +73,10 @@ fun ForecastScreen(
                     fontSize = 16.sp
                 )
             }
-
         }
+
         Box(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopCenter
         ) {
             when {
