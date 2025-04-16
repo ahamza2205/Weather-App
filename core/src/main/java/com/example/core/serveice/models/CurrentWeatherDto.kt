@@ -60,3 +60,14 @@ data class Current(
     val pressureMb: Float? = null,
     val visMiles: Float? = null
 ) : Parcelable
+
+data class CurrentWeather(
+    val country: String,
+    val city: String,
+    val temperature: Int,
+    val condition: String,
+    val iconUrl: String,
+    val localTime: String,
+    val humidity: Int,
+    val wind_kph: Int
+)

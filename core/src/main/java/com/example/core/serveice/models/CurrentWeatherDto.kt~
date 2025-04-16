@@ -55,7 +55,7 @@ data class Current(
     val pressureIn: Float? = null,
     val gustKph: Float? = null,
     val precipMm: Float? = null,
-    val currentCondition: CurrentCondition? = null,
+    val condition: CurrentCondition? = null,
     val visKm: Float? = null,
     val pressureMb: Float? = null,
     val visMiles: Float? = null
