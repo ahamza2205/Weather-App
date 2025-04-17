@@ -1,4 +1,4 @@
-package com.example.feature_currentweather.presentation.presentation
+package com.example.feature_currentweather.presentation.presentation.viewmodel
 
 import com.example.core.serveice.models.CurrentWeather
 

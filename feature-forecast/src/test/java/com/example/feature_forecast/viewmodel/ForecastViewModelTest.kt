@@ -4,9 +4,9 @@ import Forecast
 import ForecastDay
 import app.cash.turbine.test
 import com.example.feature_forecast.domain.GetForecastUseCase
-import com.example.feature_forecast.presentation.ForecastIntent
-import com.example.feature_forecast.presentation.ForecastState
-import com.example.feature_forecast.presentation.ForecastViewModel
+import com.example.feature_forecast.presentation.viewmodel.ForecastIntent
+import com.example.feature_forecast.presentation.viewmodel.ForecastState
+import com.example.feature_forecast.presentation.viewmodel.ForecastViewModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

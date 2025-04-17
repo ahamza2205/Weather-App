@@ -5,8 +5,8 @@ package com.example.feature_currentweather.viewmodel
 import app.cash.turbine.test
 import com.example.core.serveice.models.CurrentWeather
 import com.example.feature_currentweather.presentation.domain.GetCurrentWeatherUseCase
-import com.example.feature_currentweather.presentation.presentation.CurrentWeatherViewModel
-import com.example.feature_currentweather.presentation.presentation.CurrentWeatherState
+import com.example.feature_currentweather.presentation.presentation.viewmodel.CurrentWeatherViewModel
+import com.example.feature_currentweather.presentation.presentation.viewmodel.CurrentWeatherState
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

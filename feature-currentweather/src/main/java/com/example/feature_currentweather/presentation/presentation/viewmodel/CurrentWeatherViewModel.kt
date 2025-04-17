@@ -1,6 +1,7 @@
-package com.example.feature_currentweather.presentation.presentation
+package com.example.feature_currentweather.presentation.presentation.viewmodel
 
 import android.util.Log
+import androidx.compose.material3.SnackbarHostState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.feature_currentweather.presentation.domain.GetCurrentWeatherUseCase
@@ -18,6 +19,8 @@ class CurrentWeatherViewModel @Inject constructor(
     private val _state = MutableStateFlow(CurrentWeatherState())
     val state: StateFlow<CurrentWeatherState> = _state
 
+    val snackbarHostState = SnackbarHostState()
+
     fun loadWeather(city: String) {
         if (city.isBlank()) {
             _state.value = CurrentWeatherState(isLoading = false, weather = null, error = "City cannot be empty")
@@ -28,10 +31,16 @@ class CurrentWeatherViewModel @Inject constructor(
             try {
                 val response = getCurrentWeatherUseCase(city)
                 _state.value = CurrentWeatherState(weather = response, isLoading = false)
-            م    Log.d("CurrentWeatherViewModel", "Weather loaded: $response")
+                Log.d("CurrentWeatherViewModel", "Weather loaded: $response")
             } catch (e: Exception) {
                 _state.value = CurrentWeatherState(error = e.message ?: "An error occurred", isLoading = false)
             }
+        }
+    }
+
+    fun showError(message: String) {
+        viewModelScope.launch {
+            snackbarHostState.showSnackbar(message)
         }
     }
 }

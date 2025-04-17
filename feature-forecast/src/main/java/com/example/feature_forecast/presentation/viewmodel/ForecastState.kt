@@ -1,4 +1,4 @@
-package com.example.feature_forecast.presentation
+package com.example.feature_forecast.presentation.viewmodel
 
 import Forecast
 

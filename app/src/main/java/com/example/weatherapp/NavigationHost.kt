@@ -8,9 +8,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.feature_cityinpu.presentation.CityInputScreen
-import com.example.feature_currentweather.presentation.presentation.CurrentWeatherScreen
-import com.example.feature_currentweather.presentation.presentation.CurrentWeatherViewModel
-import com.example.feature_forecast.presentation.ForecastScreen
+import com.example.feature_currentweather.presentation.presentation.ui.CurrentWeatherScreen
+import com.example.feature_currentweather.presentation.presentation.viewmodel.CurrentWeatherViewModel
+import com.example.feature_forecast.presentation.ui.ForecastScreen
 import java.net.URLEncoder
 
 import java.nio.charset.StandardCharsets
