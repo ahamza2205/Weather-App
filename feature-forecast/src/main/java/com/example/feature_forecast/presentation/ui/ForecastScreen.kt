@@ -8,7 +8,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -80,10 +79,10 @@ private fun ForecastContent(state: ForecastState) {
                 CircularProgressIndicator(color = colorResource(id = R.color.textPrimary))
             }
             state.forecast != null -> {
-                if (state.forecast!!.forecastDays.isEmpty()) {
+                if (state.forecast.forecastDays.isEmpty()) {
                     EmptyStateMessage()
                 } else {
-                    ForecastList(forecastDays = state.forecast!!.forecastDays)
+                    ForecastList(forecastDays = state.forecast.forecastDays)
                 }
             }
             state.error != null -> {
